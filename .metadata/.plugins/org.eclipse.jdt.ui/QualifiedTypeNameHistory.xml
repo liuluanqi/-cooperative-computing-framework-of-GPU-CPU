@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.fourinone.FttpAdapter"/>
+<fullyQualifiedTypeName name="computingNode.FileOperate"/>
+<fullyQualifiedTypeName name="com.fourinone.WareHouse"/>
+<fullyQualifiedTypeName name="com.fourinone.WorkerLocal"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="java.util.logging.Level"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="component.ThreadPool"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="component.CooperativeMerge"/>
+<fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
+<fullyQualifiedTypeName name="computingNode.Tips"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="test.sort.ResultSerialMerge"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="component.Merging"/>
+<fullyQualifiedTypeName name="test.str.match.ResultMulMerging"/>
+<fullyQualifiedTypeName name="test.sort.GPUThreadDo"/>
+<fullyQualifiedTypeName name="test.str.match.GPUThreadDo"/>
+<fullyQualifiedTypeName name="computingNode.TypeThreadDo"/>
+<fullyQualifiedTypeName name="component.SigarUtils"/>
+<fullyQualifiedTypeName name="component.SigarInfoEntity"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="com.fourinone.FttpAdapter.FileProperty"/>
+<fullyQualifiedTypeName name="component.JobConfig"/>
+<fullyQualifiedTypeName name="computingNode.NodePerformanceIndex"/>
+<fullyQualifiedTypeName name="com.fourinone.BeanContext"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+</qualifiedTypeNameHistroy>

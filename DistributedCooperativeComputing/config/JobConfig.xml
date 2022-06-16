@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Node>
+	<!-- 资源类型：0代表本地数据，1代表分布式节点中的数据 -->
+	<SourceType>0</SourceType>
+	
+	<!-- 数据在分布式存储节点的远程地址，资源类型为1时有效 -->
+	<RemoteAddress>fttp://127.0.0.1/home/jobs/data2/data</RemoteAddress>
+	<!-- 计算节点在分布式存储系统中的本地地址，资源类型为1时有效 -->
+	<LocalAddress>fttp://127.0.0.1/home/jobs/data4/data</LocalAddress>
+	
+	<!-- 带文件名的数据路径 -->
+	<DataPath>/home/jobs/SortData/nums</DataPath>
+	<!-- 结果保存路径-->
+	<ResultPath>/home/jobs/SortResult/result</ResultPath>
+	
+	<!-- <DataPath>/home/jobs/StringMatchData/data</DataPath>   -->
+	<!-- <ResultPath>/home/jobs/strMatchResult/result</ResultPath>-->
+	
+	<!-- 节点本地数据路径 -->
+	<FolderDataPath>fttp://127.0.0.1/home/jobs/StringMatchData/</FolderDataPath>
+	
+	<!-- 数据总量 -->
+	<TotalGlobalData>4096</TotalGlobalData>
+
+	<!-- 当个计算节点的总数据量 -->
+	<TotalDataCount>4096</TotalDataCount>
+	<!-- 数据量分配方式，0代表按系统默认的分配算法分配，1代表手动分配 -->
+	<AutoAllocate>0</AutoAllocate>
+	<!-- 手动分配时CPU计算的数据量 -->
+	<CPUDataCount>512</CPUDataCount>
+	<!-- 手动分配时GPU计算的数据量 -->
+	<GPUDataCount>0</GPUDataCount>
+	<!-- 计算模式，0为批计算，1为流计算 -->
+	<ComputeMode>1</ComputeMode>
+	<!-- 合并模式 0：串行合并；1：并行合并 -->
+	<IsMulThreading>1</IsMulThreading>
+	<!-- 窗口时间ms -->
+	<WindowPhase>500</WindowPhase>
+	<!-- 窗口个数 -->
+	<TryNums>10</TryNums>
+	<!-- 文件索引路径 -->
+	<FileIndexPath>/home/jobs/fileName.txt</FileIndexPath>
+	<!-- GPU信息路径 -->
+	<GPUInfoPath>/home/jobs/gpuinfo.txt</GPUInfoPath>
+</Node>

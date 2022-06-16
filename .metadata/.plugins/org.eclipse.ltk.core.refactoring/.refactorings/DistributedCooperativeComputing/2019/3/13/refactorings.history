@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;DistributedCooperativeComputing&apos;&#x0D;&#x0A;- Original project: &apos;DistributedCooperativeComputing&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     CooperativeBaseScheduler.java.bak&#x0D;&#x0A;     CooperativeScheduler.java.bak&#x0D;&#x0A;     JobBaseScheduler.java.bak&#x0D;&#x0A;     JobScheduler.java.bak" description="Delete elements" element1="src/Scheduler/JobBaseScheduler.java.bak" element2="src/Scheduler/CooperativeBaseScheduler.java.bak" element3="src/Scheduler/CooperativeScheduler.java.bak" element4="src/Scheduler/JobScheduler.java.bak" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1553926893668" subPackages="false" version="1.0"/>
+</session>

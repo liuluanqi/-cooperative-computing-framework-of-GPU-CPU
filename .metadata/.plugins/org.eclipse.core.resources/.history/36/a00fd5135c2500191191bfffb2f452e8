@@ -1,0 +1,43 @@
+package Scheduler;
+
+
+import com.fourinone.Contractor;
+import com.fourinone.WareHouse;
+import com.fourinone.WorkerLocal;
+import component.JobConfig;
+
+public class JobScheduler extends Contractor{
+
+	WorkerLocal[] wks;
+	@Override
+	public WareHouse giveTask(WareHouse inhouse){
+		// TODO Auto-generated method stub
+		int i = 0;
+		System.out.println("Give Task!");
+		wks = getWaitingWorkers("CooSched");//获取工人
+		System.out.println("工人数："+wks.length);
+		
+		JobConfig[] config = new JobConfig[wks.length];
+		WareHouse[] wh = new WareHouse[wks.length];//实例化消息仓库
+		
+		int cpuIncrement = 0;
+
+		for(i = 0;i < wks.length;i++) {
+			int cpuStartIndex = 0;
+			config[i] = new JobConfig();
+			cpuIncrement = config[i].getTotalDataCount() * i;
+			config[i].setCpuStartIndex(cpuStartIndex + cpuIncrement)  ;
+			config[i].setGpuStartIndex(cpuStartIndex + config[i].getCPUDataCount());
+			wh[i].setObj("jobInfo", config[i]);
+			wks[i].doTask(wh[i]);//开始任务
+			
+		}
+		return null;
+		
+	}
+	
+	public void startJob(){
+		this.giveTask(null);
+	}
+	
+}

@@ -1,0 +1,61 @@
+package Scheduler;
+
+import org.dom4j.DocumentException;
+import com.fourinone.Contractor;
+import com.fourinone.WareHouse;
+import com.fourinone.WorkerLocal;
+
+import component.JobConfig;
+import component.XMLOperate;
+
+public class JobScheduler extends Contractor{
+
+	WorkerLocal[] wks;
+	JobConfig config = new JobConfig();
+	@Override
+	public WareHouse giveTask(WareHouse inhouse){
+		// TODO Auto-generated method stub
+		int i = 0;
+		System.out.println("Give Task!");
+		wks = getWaitingWorkers("CooSched");//获取工人
+		System.out.println("工人数："+wks.length);
+
+		
+		int cpuIncrement = 0;
+		try {
+			dataPath = xml.getSpecifyElement("DataPath");
+			resultPath = xml.getSpecifyElement("ResultPath");
+			TotalCount = xml.getSpecifyElement("TotalDataCount");
+			CPUCount = xml.getSpecifyElement("CPUDataCount");
+			GPUCount = xml.getSpecifyElement("GPUDataCount");
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(i = 0;i < wks.length;i++) {
+			int cpuStartIndex = 0;
+			int gpuStartIndex = 0;
+			cpuIncrement = Integer.parseInt(TotalCount) * i;
+			cpuStartIndex = cpuStartIndex + cpuIncrement;
+			gpuStartIndex = cpuStartIndex + Integer.parseInt(CPUCount);
+			WareHouse wh = new WareHouse();//设置数据路径
+			wh.setString("dataPath", dataPath);
+			wh.setString("resultPath", resultPath);//设置结果路径
+			wh.setString("cpuStartIndex", String.valueOf(cpuStartIndex));//设置CPU开始索引
+			wh.setString("gpuStartIndex", String.valueOf(gpuStartIndex));//设置GPU开始索引
+			wh.setString("cpuDataCount", CPUCount);//设置CPU数据量
+			wh.setString("gpuDataCount", GPUCount);//设置GPU数据量
+			wh.setString("TotalCount", TotalCount);//设置总数据量
+			wks[i].doTask(wh);//开始任务
+			
+		}
+		return null;
+		
+	}
+	
+	public void startJob(){
+		this.giveTask(null);
+	}
+	
+}

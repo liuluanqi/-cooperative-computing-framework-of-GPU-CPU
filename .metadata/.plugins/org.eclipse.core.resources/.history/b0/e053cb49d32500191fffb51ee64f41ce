@@ -1,0 +1,63 @@
+package Scheduler;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+
+import com.fourinone.MigrantWorker;
+import com.fourinone.WareHouse;
+
+import component.CPUWorker;
+import component.GPUWorker;
+import component.JobConfig;
+import define.user.ResultMerging;
+
+@SuppressWarnings("serial")
+//协调调度类
+public class CooperativeScheduler extends MigrantWorker
+{	
+	CPUWorker cpuWorker;//CPU工人
+	GPUWorker gpuWorker;//GPU工人
+	String dataPath;//数据路径
+	String resultPath;//结果路径
+	int dataCount;//总数据量
+	int cpuCount;//CPU数据量
+	int gpuCount;//GPU数据量
+	int cpuStartIndex;//CPU开始索引
+	int gpuStartIndex;//GPU开始索引
+	public WareHouse doTask(WareHouse inhouse)
+	{
+		JobConfig config = (JobConfig) inhouse.getObj("JobInfo");
+		CountDownLatch cdt = new CountDownLatch(dataCount);//初始化计数器
+		
+		try {
+			cpuWorker = new CPUWorker(config,cdt);//初始化并启动CPU任务
+			gpuWorker = new GPUWorker(config,cdt);//初始化并启动GPU任务
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			System.out.println("开始等待任务结束");
+			cdt.await();//等待任务完成
+			System.out.println("任务结束！！");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		ResultMerging rm=new ResultMerging(dataCount,resultPath);//初始化合并结果类
+		try {
+			rm.merging();
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+	
+	public void joinCluster(String clusterName){
+		this.waitWorking(clusterName);
+	}
+	
+}
